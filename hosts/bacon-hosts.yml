@@ -1,0 +1,74 @@
+generated: '2026-09-27'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 4
+  own: 4
+  other_domain: 0
+  platform: 0
+  roles:
+  - api
+  - other
+  - support
+  - website
+hosts:
+- host: api.baconwork.com
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: baconwork.com
+  role: api
+  relation: own
+- host: app.baconwork.com
+  found_by:
+  - probed
+  - site-links
+  - contract-discovery
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: baconwork.com
+  role: other
+  relation: own
+- host: support.baconwork.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - Support
+  serves:
+  - support
+  vendor: freshdesk
+  registrable_domain: baconwork.com
+  role: support
+  relation: own
+- host: www.baconwork.com
+  found_by:
+  - pointer
+  - apis[]
+  - probed
+  - docs-index
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - TermsOfService
+  - SignUp
+  - PrivacyPolicy
+  - Newsroom
+  - GettingStarted
+  - Website
+  - Documentation
+  serves:
+  - docs
+  - cdn
+  vendor: cloudflare
+  registrable_domain: baconwork.com
+  role: website
+  relation: own
